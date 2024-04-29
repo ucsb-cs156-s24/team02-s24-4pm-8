@@ -23,4 +23,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-s24/team02-s24-4pm-8
 owner: ucsb-cs156-s24
 repo_name: team02-s24-4pm-8
-pull_requests: []
+pull_requests: [{"author":{"id":"U_kgDOBdHiHw","is_bot":false,"login":"emilythai","name":""},"headRefName":"et-RecommendationRequest-create-db","number":43,"title":"Add database table for RecommendationRequest","url":"https://github.com/ucsb-cs156-s24/team02-s24-4pm-8/pull/43"}]
