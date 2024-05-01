@@ -27,7 +27,7 @@
                       "autoIncrement": true,
                       "constraints": {
                         "primaryKey": true,
-                        "primaryKeyName": "CONSTRAINT_1"
+                        "primaryKeyName": "CONSTRAINT_8"
                       },
                       "name": "ID",
                       "type": "BIGINT"
@@ -36,7 +36,7 @@
                   {
                     "column": {
                       "name": "ITEM_ID",
-                      "type": "TIMESTAMP"
+                      "type": "BIGINT"
                     }
                   },
                   {
@@ -54,7 +54,7 @@
                   {
                     "column": {
                       "name": "DATE_REVIEWED",
-                      "type": "VARCHAR(255)"
+                      "type": "TIMESTAMP"
                     }
                   },
                   {
