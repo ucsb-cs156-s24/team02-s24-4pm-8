@@ -92,7 +92,7 @@ public class UCSBOrganizationControllerTests extends ControllerTestCase {
                                 .orgCode("OSLI")
                                 .orgTranslationShort("STUDENT LIFE")
                                 .orgTranslation("OFFICE OF STUDENT LIFE")
-                                .inactive(false)
+                                .inactive(true)
                                 .build();
 
                 ArrayList<UCSBOrganization> expectedOrgs = new ArrayList<>();
@@ -136,14 +136,14 @@ public class UCSBOrganizationControllerTests extends ControllerTestCase {
                                 .orgCode("KRC")
                                 .orgTranslationShort("KOREAN RADIO CL")
                                 .orgTranslation("KOREAN RADIO CLUB")
-                                .inactive(false)
+                                .inactive(true)
                                 .build();
 
                 when(ucsbOrganizationRepository.save(eq(KRC))).thenReturn(KRC);
 
                 // act
                 MvcResult response = mockMvc.perform(
-                                post("/api/ucsborganization/post?orgCode=KRC&orgTranslationShort=KOREAN RADIO CL&orgTranslation=KOREAN RADIO CLUB&inactive=false")
+                                post("/api/ucsborganization/post?orgCode=KRC&orgTranslationShort=KOREAN RADIO CL&orgTranslation=KOREAN RADIO CLUB&inactive=true")
                                                 .with(csrf()))
                                 .andExpect(status().isOk()).andReturn();
 
@@ -160,7 +160,7 @@ public class UCSBOrganizationControllerTests extends ControllerTestCase {
 
         @Test
         public void logged_out_users_cannot_get_by_id() throws Exception {
-                mockMvc.perform(get("/api/ucsborganization?orgCode=carrillo"))
+                mockMvc.perform(get("/api/ucsborganization?orgCode=SKY"))
                                 .andExpect(status().is(403)); // logged out users can't get by id
         }
 
@@ -278,17 +278,17 @@ public class UCSBOrganizationControllerTests extends ControllerTestCase {
 
 
                 UCSBOrganization SKYEdited = UCSBOrganization.builder()
-                                .orgCode("SKY")
-                                .orgTranslationShort("SKYDIVING CLUB")
-                                .orgTranslation("SKYDIVING CLUB AT UCSB")
-                                .inactive(false)
+                                .orgCode("")
+                                .orgTranslationShort("")
+                                .orgTranslation("")
+                                .inactive(true)
                                 .build();
 
 
                 String requestBody = mapper.writeValueAsString(SKYEdited);
 
 
-                when(ucsbOrganizationRepository.findById(eq("carrillo"))).thenReturn(Optional.of(SKYOrig));
+                when(ucsbOrganizationRepository.findById(eq("SKY"))).thenReturn(Optional.of(SKYOrig));
 
 
                 // act

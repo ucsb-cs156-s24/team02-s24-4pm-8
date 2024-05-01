@@ -94,6 +94,7 @@ public class UCSBOrganizationController extends ApiController {
         UCSBOrganization organizations = UCSBOrganizationRepository.findById(orgCode)
                 .orElseThrow(() -> new EntityNotFoundException(UCSBOrganization.class, orgCode));
 
+        organizations.setOrgCode(incoming.getOrgCode());
         organizations.setOrgTranslationShort(incoming.getOrgTranslationShort());
         organizations.setOrgTranslation(incoming.getOrgTranslation());
         organizations.setInactive(incoming.getInactive());
