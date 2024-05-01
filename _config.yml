@@ -23,4 +23,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-s24/team02-s24-4pm-8
 owner: ucsb-cs156-s24
 repo_name: team02-s24-4pm-8
-pull_requests: [{"author":{"id":"U_kgDOBXv2pw","is_bot":false,"login":"rainakakani21","name":""},"headRefName":"rk-UCSBDiningCommonMenuItem-create-db","number":56,"title":"added database stuff for ucsbdiningcommonmenuitem","url":"https://github.com/ucsb-cs156-s24/team02-s24-4pm-8/pull/56"}]
+pull_requests: [{"author":{"id":"U_kgDOBdHsdg","is_bot":false,"login":"charlene-patenaude","name":""},"headRefName":"cp-UCSBOrganization-create-controller","number":58,"title":"CP - ucsb organization create controller","url":"https://github.com/ucsb-cs156-s24/team02-s24-4pm-8/pull/58"},{"author":{"id":"U_kgDOBXv2pw","is_bot":false,"login":"rainakakani21","name":""},"headRefName":"rk-UCSBDiningCommonMenuItem-create-db","number":56,"title":"added database stuff for ucsbdiningcommonmenuitem","url":"https://github.com/ucsb-cs156-s24/team02-s24-4pm-8/pull/56"}]
