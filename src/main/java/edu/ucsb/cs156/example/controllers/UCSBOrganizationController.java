@@ -61,5 +61,45 @@ public class UCSBOrganizationController extends ApiController {
         return savedOrganizations;
     }
 
-    
+    @Operation(summary= "Get a single organization")
+    @PreAuthorize("hasRole('ROLE_USER')")
+    @GetMapping("")
+    public UCSBOrganization getById(
+            @Parameter(name="orgCode") @RequestParam String orgCode) {
+        UCSBOrganization organizations = UCSBOrganizationRepository.findById(orgCode)
+                .orElseThrow(() -> new EntityNotFoundException(UCSBOrganization.class, orgCode));
+
+        return organizations;
+    }
+
+    @Operation(summary= "Delete a UCSBOrganization")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @DeleteMapping("")
+    public Object deleteOrganizations(
+            @Parameter(name="orgCode") @RequestParam String orgCode) {
+        UCSBOrganization organizations = UCSBOrganizationRepository.findById(orgCode)
+                .orElseThrow(() -> new EntityNotFoundException(UCSBOrganization.class, orgCode));
+
+        UCSBOrganizationRepository.delete(organizations);
+        return genericMessage("UCSBOrganization with id %s deleted".formatted(orgCode));
+    }
+
+    @Operation(summary= "Update a single organization")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PutMapping("")
+    public UCSBOrganization updateOrganization(
+            @Parameter(name="orgCode") @RequestParam String orgCode,
+            @RequestBody @Valid UCSBOrganization incoming) {
+
+        UCSBOrganization organizations = UCSBOrganizationRepository.findById(orgCode)
+                .orElseThrow(() -> new EntityNotFoundException(UCSBOrganization.class, orgCode));
+
+        organizations.setOrgTranslationShort(incoming.getOrgTranslationShort());
+        organizations.setOrgTranslation(incoming.getOrgTranslation());
+        organizations.setInactive(incoming.getInactive());
+
+        UCSBOrganizationRepository.save(organizations);
+
+        return organizations;
+    }
 }
