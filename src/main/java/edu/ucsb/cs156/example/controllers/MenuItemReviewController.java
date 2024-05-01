@@ -28,7 +28,7 @@ import javax.validation.Valid;
 import java.time.LocalDateTime;
 
 @Tag(name = "MenuItemReview")
-@RequestMapping("/api/menuitemreviews")
+@RequestMapping("/api/menuitemreview")
 @RestController
 @Slf4j
 public class MenuItemReviewController extends ApiController {
@@ -48,7 +48,7 @@ public class MenuItemReviewController extends ApiController {
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/post")
     public MenuItemReview postMenuItemReview(
-            @Parameter(name="itemID") @RequestParam Long itemID,
+            @Parameter(name="itemId") @RequestParam Long itemId,
             @Parameter(name="reviewerEmail") @RequestParam String reviewerEmail,
             @Parameter(name="stars") @RequestParam Integer stars,
             @Parameter(name="dateReviewed") @RequestParam("dateReviewed") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dateReviewed, // (in iso format, e.g. YYYY-mm-ddTHH:MM:SS; see https://en.wikipedia.org/wiki/ISO_8601)
@@ -61,7 +61,7 @@ public class MenuItemReviewController extends ApiController {
         log.info("dateReviewed={}", dateReviewed);
 
         MenuItemReview review = new MenuItemReview();
-        review.setItemId(itemID);
+        review.setItemId(itemId);
         review.setReviewerEmail(reviewerEmail);
         review.setStars(stars);
         review.setDateReviewed(dateReviewed);

@@ -46,14 +46,14 @@ public class MenuItemReviewControllerTests extends ControllerTestCase {
     
     @Test
     public void logged_out_users_cannot_get_all() throws Exception {
-            mockMvc.perform(get("/api/menuitemreviews/all"))
+            mockMvc.perform(get("/api/menuitemreview/all"))
                             .andExpect(status().is(403)); // logged out users can't get all
     }
 
     @WithMockUser(roles = { "USER" })
     @Test
     public void logged_in_users_can_get_all() throws Exception {
-            mockMvc.perform(get("/api/menuitemreviews/all"))
+            mockMvc.perform(get("/api/menuitemreview/all"))
                             .andExpect(status().is(200)); // logged
     }
 
@@ -88,7 +88,7 @@ public class MenuItemReviewControllerTests extends ControllerTestCase {
             when(menuItemReviewRepository.findAll()).thenReturn(expectedReviews);
 
             // act
-            MvcResult response = mockMvc.perform(get("/api/menuitemreviews/all"))
+            MvcResult response = mockMvc.perform(get("/api/menuitemreview/all"))
                             .andExpect(status().isOk()).andReturn();
 
             // assert
@@ -103,14 +103,14 @@ public class MenuItemReviewControllerTests extends ControllerTestCase {
 
     @Test
     public void logged_out_users_cannot_post() throws Exception {
-            mockMvc.perform(post("/api/menuitemreviews/post"))
+            mockMvc.perform(post("/api/menuitemreview/post"))
                             .andExpect(status().is(403));
     }
 
     @WithMockUser(roles = { "USER" })
     @Test
     public void logged_in_regular_users_cannot_post() throws Exception {
-            mockMvc.perform(post("/api/menuitemreviews/post"))
+            mockMvc.perform(post("/api/menuitemreview/post"))
                             .andExpect(status().is(403)); // only admins can post
     }
 
@@ -132,10 +132,8 @@ public class MenuItemReviewControllerTests extends ControllerTestCase {
             when(menuItemReviewRepository.save(eq(review1))).thenReturn(review1);
 
             // act
-            MvcResult response = mockMvc.perform(
-                            post("/api/menuitemreviews/post?itemId=7&reviewerEmail=cgaucho@ucsb.edu&stars=5&dateReviewed=2022-01-03T00:00:00&comments=Delicious.")
-                                            .with(csrf()))
-                            .andExpect(status().isOk()).andReturn();
+            String URL = "/api/menuitemreview/post?itemId=7&reviewerEmail=cgaucho@ucsb.edu&stars=5&dateReviewed=2022-01-03T00:00:00&comments=Delicious.";
+            MvcResult response = mockMvc.perform(post(URL).with(csrf())).andExpect(status().isOk()).andReturn();
 
             // assert
             verify(menuItemReviewRepository, times(1)).save(review1);
