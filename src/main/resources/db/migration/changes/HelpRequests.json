@@ -2,8 +2,8 @@
   "databaseChangeLog": [
     {
       "changeSet": {
-        "id": "UCSBDates-1",
-        "author": "MattP",
+        "id": "HelpRequests-1",
+        "author": "JeffreyM",
         "preConditions": [
           {
             "onFail": "MARK_RAN"
@@ -12,7 +12,7 @@
             "not": [
               {
                 "tableExists": {
-                  "tableName": "UCSBDATES"
+                  "tableName": "HELPREQUESTS"
                 }
               }
             ]
@@ -27,7 +27,7 @@
                     "autoIncrement": true,
                     "constraints": {
                       "primaryKey": true,
-                      "primaryKeyName": "CONSTRAINT_5"
+                      "primaryKeyName": "CONSTAINT_HELPREQUEST"
                     },
                     "name": "ID",
                     "type": "BIGINT"
@@ -35,24 +35,42 @@
                 },
                 {
                   "column": {
-                    "name": "LOCAL_DATE_TIME",
+                    "name": "REQUESTER_EMAIL",
+                    "type": "VARCHAR(255)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "TEAM_ID",
+                    "type": "VARCHAR(255)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "TABLE_OR_BREAKOUT_ROOM",
+                    "type": "VARCHAR(255)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "REQUEST_TIME",
                     "type": "TIMESTAMP"
                   }
                 },
                 {
                   "column": {
-                    "name": "NAME",
+                    "name": "EXPLANATION",
                     "type": "VARCHAR(255)"
                   }
                 },
                 {
                   "column": {
-                    "name": "QUARTERYYYYQ",
-                    "type": "VARCHAR(255)"
+                    "name": "SOLVED",
+                    "type": "BOOLEAN"
                   }
                 }
               ],
-              "tableName": "UCSBDATES"
+              "tableName": "HELPREQUESTS"
             }
           }
         ]
