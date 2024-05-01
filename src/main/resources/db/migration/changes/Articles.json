@@ -27,6 +27,7 @@
                       "constraints": {
                         "primaryKey": true,
                         "primaryKeyName": "CONSTRAINT_6"
+                        
                       },
                       "name": "ID",
                       "type": "BIGINT"
