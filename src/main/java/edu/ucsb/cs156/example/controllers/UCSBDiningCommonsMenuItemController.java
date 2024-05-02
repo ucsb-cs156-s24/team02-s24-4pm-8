@@ -72,44 +72,44 @@ public class UCSBDiningCommonsMenuItemController extends ApiController{
         return saveducsbDiningCommonsMenuItem;
     }
 
-    @Operation(summary= "Get a single ucsb dining commons menu item")
-    @PreAuthorize("hasRole('ROLE_USER')")
-    @GetMapping("")
-    public UCSBDiningCommonsMenuItem getById(
-            @Parameter(name="id") @RequestParam Long id) {
-        UCSBDiningCommonsMenuItem ucsbDiningCommonsMenuItem = ucsbDiningCommonsMenuItemRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException(UCSBDiningCommonsMenuItem.class, id));
+    // @Operation(summary= "Get a single ucsb dining commons menu item")
+    // @PreAuthorize("hasRole('ROLE_USER')")
+    // @GetMapping("")
+    // public UCSBDiningCommonsMenuItem getById(
+    //         @Parameter(name="id") @RequestParam Long id) {
+    //     UCSBDiningCommonsMenuItem ucsbDiningCommonsMenuItem = ucsbDiningCommonsMenuItemRepository.findById(id)
+    //             .orElseThrow(() -> new EntityNotFoundException(UCSBDiningCommonsMenuItem.class, id));
 
-        return ucsbDiningCommonsMenuItem;
-    }
+    //     return ucsbDiningCommonsMenuItem;
+    // }
 
-    @Operation(summary= "Delete a ucsb dining commons menu item")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
-    @DeleteMapping("")
-    public Object deleteUCSBDiningCommonsMenuItem(
-            @Parameter(name="id") @RequestParam Long id) {
-        UCSBDiningCommonsMenuItem ucsbDiningCommonsMenuItem = ucsbDiningCommonsMenuItemRepository.findById(id) 
-                .orElseThrow(() -> new EntityNotFoundException(UCSBDiningCommonsMenuItem.class, id));
+    // @Operation(summary= "Delete a ucsb dining commons menu item")
+    // @PreAuthorize("hasRole('ROLE_ADMIN')")
+    // @DeleteMapping("")
+    // public Object deleteUCSBDiningCommonsMenuItem(
+    //         @Parameter(name="id") @RequestParam Long id) {
+    //     UCSBDiningCommonsMenuItem ucsbDiningCommonsMenuItem = ucsbDiningCommonsMenuItemRepository.findById(id) 
+    //             .orElseThrow(() -> new EntityNotFoundException(UCSBDiningCommonsMenuItem.class, id));
 
-                ucsbDiningCommonsMenuItemRepository.delete(ucsbDiningCommonsMenuItem);
-        return genericMessage("ucsb dining commons menu item with id %s deleted".formatted(id));
-    }
+    //             ucsbDiningCommonsMenuItemRepository.delete(ucsbDiningCommonsMenuItem);
+    //     return genericMessage("ucsb dining commons menu item with id %s deleted".formatted(id));
+    // }
 
-    @Operation(summary= "Update a ucsb dining commons menu item")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
-    @PutMapping("")
-    public UCSBDiningCommonsMenuItem updateUCSBDiningCommonsMenuItem(
-            @Parameter(name="id") @RequestParam Long id,
-            @RequestBody @Valid UCSBDiningCommonsMenuItem incoming) {  
+    // @Operation(summary= "Update a ucsb dining commons menu item")
+    // @PreAuthorize("hasRole('ROLE_ADMIN')")
+    // @PutMapping("")
+    // public UCSBDiningCommonsMenuItem updateUCSBDiningCommonsMenuItem(
+    //         @Parameter(name="id") @RequestParam Long id,
+    //         @RequestBody @Valid UCSBDiningCommonsMenuItem incoming) {  
 
-        UCSBDiningCommonsMenuItem ucsbDiningCommonsMenuItem = ucsbDiningCommonsMenuItemRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException(UCSBDate.class, id));
+    //     UCSBDiningCommonsMenuItem ucsbDiningCommonsMenuItem = ucsbDiningCommonsMenuItemRepository.findById(id)
+    //             .orElseThrow(() -> new EntityNotFoundException(UCSBDate.class, id));
 
-        ucsbDiningCommonsMenuItem.setDiningCommonsCode(incoming.getDiningCommonsCode());
-        ucsbDiningCommonsMenuItem.setName(incoming.getName());
-        ucsbDiningCommonsMenuItem.setStation(incoming.getStation());
-        ucsbDiningCommonsMenuItemRepository.save(ucsbDiningCommonsMenuItem);
+    //     ucsbDiningCommonsMenuItem.setDiningCommonsCode(incoming.getDiningCommonsCode());
+    //     ucsbDiningCommonsMenuItem.setName(incoming.getName());
+    //     ucsbDiningCommonsMenuItem.setStation(incoming.getStation());
+    //     ucsbDiningCommonsMenuItemRepository.save(ucsbDiningCommonsMenuItem);
 
-        return ucsbDiningCommonsMenuItem;
-    }
+    //     return ucsbDiningCommonsMenuItem;
+    // }
 }
