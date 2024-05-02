@@ -48,7 +48,7 @@ public class UCSBDiningCommonsMenuItemController extends ApiController{
         return dcmenuitems; 
     } 
 
-    @Operation(summary= "Create a new ucsb dining commons menu item") 
+    @Operation(summary= "Create a new ucsb dining commons menu item")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/post")
     public UCSBDiningCommonsMenuItem postUCSBDiningCommonsMenuItem( 
