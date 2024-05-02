@@ -24,6 +24,16 @@
                   {
                     "column": {
                       "constraints": {
+                        "primaryKey": true,
+                        "primaryKeyName": "CONSTRAINT_7"
+                      },
+                      "name": "ID",
+                      "type": "BIGINT"
+                    } 
+                  },
+                  {
+                    "column": {
+                      "constraints": {
                         "nullable": false
                       },
                       "name": "DININGCOMMONSCODE",
