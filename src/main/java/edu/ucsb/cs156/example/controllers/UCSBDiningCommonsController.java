@@ -24,7 +24,7 @@ import javax.validation.Valid;
 
 @Tag(name = "UCSBDiningCommons")
 @RequestMapping("/api/ucsbdiningcommons")
-@RestController
+@RestController 
 @Slf4j
 public class UCSBDiningCommonsController extends ApiController {
 
